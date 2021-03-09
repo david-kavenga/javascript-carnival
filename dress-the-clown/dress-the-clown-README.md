@@ -12,14 +12,15 @@
 ## Summary
 
 Look at that clown! Sure, he looks pretty good; but without an outfit can he really _call himself a clown?_
+
 We are going to write some `JavaScript functions` and bind them to the arrow keys on your keyboard. The *up and down arrow keys* will move between different parts of the clown, and the *left and right* arrow keys will cycle between different clothing options.
 
 #### Resources
 
-[Getting an Element by ID](https://www.w3schools.com/jsref/met_document_getelementbyid.asp)\
-[Concat Strings in Javascript](https://www.w3schools.com/jsref/jsref_concat_string.asp)\
-[KeyboardEvent Documentation](https://www.w3schools.com/jsref/event_key_keycode.asp)\
-[Detect Keycodes!](https://keycode.info/)
+* [Getting an Element by ID](https://www.w3schools.com/jsref/met_document_getelementbyid.asp)
+* [Concat Strings in Javascript](https://www.w3schools.com/jsref/jsref_concat_string.asp)
+* [KeyboardEvent `code` Documentation](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code)
+* [Detect Keycodes!](https://keycode.info/)
 
 ## Time to Dress The Clown!
 
@@ -59,7 +60,7 @@ var headSrc = "./images/head" + headIndex + ".png"
 
 In order to test whether the function is working, you'll have to be able to call it over and over again. This is where the arrow keys start to come in! 
 
-9. We want to use the right arrow key to call the function, so it's time to do some googling. Something along the lines of "call a function with arrow keys javascript" should do it. (Spoiler alert: you will likely need to figure out what the "keycode" for the right arrow key is. Try using this tool [Detect Keycodes!](https://keycode.info/)).
+9. We want to use the right arrow key to call the function, so it's time to do some googling. Something along the lines of "call a function with arrow keys javascript" should do it. (Spoiler alert: you will likely need to figure out what the `code` (or `key` if you like) for the right arrow key is. Try using this tool [Detect Keycodes!](https://keycode.info/)). _Note: you may also find references to a `keycode` property on keyboard events, but don't be tempted to use this. It has been deprecated (marked to warn that it will be phased out in future versions)._
 
 You should now be able to use the right arrow key to move between different head images. However, there is an issue. If your `headIndex` variable increases _higher_ than the number of head images available, everything breaks. How could you change your code to prevent this? 
 

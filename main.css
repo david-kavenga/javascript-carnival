@@ -60,3 +60,8 @@ td {
 .shoes {
   z-index: 1
 }
+
+p {
+  margin-top: 100px;
+  text-align: center;
+}

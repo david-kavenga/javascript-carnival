@@ -51,7 +51,7 @@ function changeBodyPart(direction) {
 	if (direction) {
 		if (clothingIndex < 2) clothingIndex++
 	} else {
-		if (clothingIndex > 1) clothingIndex--
+		if (clothingIndex > 0) clothingIndex--
 	}
 }
 

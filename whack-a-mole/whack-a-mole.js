@@ -7,6 +7,10 @@ console.log('Whack-a-Mole!')
 const cellsArr = []
 const cells = document.getElementsByTagName('td')
 
+// set up Audio
+const swipeAudio = new Audio('whack-audio.wav')
+swipeAudio.volume = 0.25
+
 // add event listeners an populate cellsArr
 for (let td of cells) {
 	td.addEventListener('click', whackedMole)
@@ -22,6 +26,8 @@ function whackedMole(evt) {
 	)
 
 	if (cell.isMole == true) {
+		swipeAudio.currentTime = 0
+		swipeAudio.play()
 		placeMole(cell)
 	}
 }

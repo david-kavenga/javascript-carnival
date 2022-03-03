@@ -10,13 +10,17 @@
 	<body>
 
 		<h1> JAVASCRIPT CARNIVAL: Dress The Clown! </h1>
-
-		<div class="dress-a-parent">
+    <p>Use the left and right direction keys on your keyboard to change clothing item. Use the up and down keys to change body part.</p>
+    <p>Click <button id="saveButton">Generate Screenshot</button>, to generate an image of your clown, then right click it and 'Save image as' to save the screenshot to your computer</p>
+		<div id="capture" class="dress-a-parent">
 			<img class="dress-an-image head" src="./images/head3.png"> <br>
 			<img class="dress-an-image body" src="./images/body4.png"> <br>
 			<img class="dress-an-image shoes" src="./images/shoes4.png">
+      
 		</div>
 
-		<script src="dress-the-clown.js"></script>
+    <script src="html2canvas.js"></script>
+		<script src="dress-the-clown.js"></script> 
+    <span>Generated image(s) here -></span> 
 	</body>
 </html>

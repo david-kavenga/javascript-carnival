@@ -34,13 +34,21 @@ td {
 }
 
 .dress-a-parent {
-  display: block;
-  margin-left: auto;
+  display: inline-flex;
+  flex-direction: column-reverse;
+  margin-left: 200px;
   margin-right: auto;
-  width: 50%;
+  width: 384px;
+  height: 612px;
   position: relative;
   top: 0;
   left: 0;
+  background-color: lightpink;
+}
+
+canvas{
+  border-style: dotted;
+  border-color: black;
 }
 
 .dress-an-image {

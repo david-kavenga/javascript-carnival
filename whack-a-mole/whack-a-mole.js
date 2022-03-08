@@ -15,6 +15,11 @@ const moleImg = document.createElement('img')
 moleImg.src = 'mole.PNG'
 moleImg.style.width = '74px'
 moleImg.style.height = '71px'
+moleImg.style.userSelect = 'none'
+moleImg.style.pointerEvents = 'none'
+moleImg.ondragstart = () => {
+	return false
+}
 
 // Set up Audio
 const hitAudio = new Audio('whack-audio.wav')

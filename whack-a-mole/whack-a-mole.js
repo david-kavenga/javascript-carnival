@@ -10,6 +10,12 @@ let hitCount = 0
 let highScore = 0
 let challenge = 0
 
+// Set up Mole
+const moleImg = document.createElement('img')
+moleImg.src = 'mole.PNG'
+moleImg.style.width = '74px'
+moleImg.style.height = '71px'
+
 // Set up Audio
 const hitAudio = new Audio('whack-audio.wav')
 hitAudio.volume = 0.25
@@ -133,17 +139,10 @@ function chooseCell(prevInd, length) {
 function molify(cell) {
 	// Put mole in a cell
 	cell.isMole = true
-	const img = cell.element.appendChild(
-		document.createElement('img')
-	)
-	img.src = 'mole.PNG'
-	img.style.width = '74px'
-	img.style.height = '71px'
+	cell.element.insertBefore(moleImg, null)
 }
 
 function deMolify(cell) {
 	// Remove mole from a cell
 	cell.isMole = false
-	let children = cell.element.children
-	cell.element.removeChild(children[0])
 }

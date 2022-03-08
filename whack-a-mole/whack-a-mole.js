@@ -34,11 +34,11 @@ document
 	.addEventListener('click', startChallenge)
 
 // Set move timer
-let moveInterval = ''
+let moveTimeout = ''
 
 window.document.onload = function (e) {
 	console.log('Start')
-	moveInterval = setInterval(function () {
+	moveTimeout = setTimeout(function () {
 		previousMole = placeMole(previousMole)
 	}, 1000)
 }
@@ -83,9 +83,9 @@ function placeMole(prev) {
 	document.getElementById('count').innerText = hitCount
 
 	//reset move timer to random time
-	clearInterval(moveInterval)
+	clearTimeout(moveTimeout)
 	let randTime = 100 * getRandomInt(5) + 500
-	moveInterval = setInterval(function () {
+	moveTimeout = setTimeout(function () {
 		previousMole = placeMole(previousMole)
 	}, randTime)
 
@@ -134,13 +134,12 @@ function updateScores() {
 }
 
 function chooseCell(prevInd, length) {
-	if (prevInd == 'undefined')
-		return Math.floor(Math.random() * length)
+	if (prevInd == 'undefined') return getRandomInt(length)
 
 	// generate new random index until it isn't the old cell location
 	let pos = prevInd
 	while (pos == prevInd) {
-		pos = Math.floor(Math.random() * length)
+		pos = getRandomInt(length)
 	}
 
 	return pos

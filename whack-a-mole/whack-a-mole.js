@@ -33,13 +33,18 @@ document
 	.getElementById('startChallenge')
 	.addEventListener('click', startChallenge)
 
+// Set move timer
+let moveInterval = ''
+
+window.document.onload = function (e) {
+	console.log('Start')
+	moveInterval = setInterval(function () {
+		previousMole = placeMole(previousMole)
+	}, 1000)
+}
+
 // Place initial mole
 let previousMole = placeMole(0)
-
-// Set move timer
-moveInterval = setInterval(function () {
-	previousMole = placeMole(previousMole)
-}, 2000)
 
 function whackedMole(evt) {
 	// Get clicked cell
@@ -62,10 +67,8 @@ function whackedMole(evt) {
 }
 
 function placeMole(prev) {
-	// Remove old element
-	if (prev != 0) {
-		deMolify(prev)
-	}
+	// Remove old mole
+	deMolify(prev)
 
 	// Choose a different cell index
 	let pos = chooseCell(
@@ -78,6 +81,13 @@ function placeMole(prev) {
 
 	// Update the hit count
 	document.getElementById('count').innerText = hitCount
+
+	//reset move timer to random time
+	clearInterval(moveInterval)
+	let randTime = 100 * getRandomInt(5) + 500
+	moveInterval = setInterval(function () {
+		previousMole = placeMole(previousMole)
+	}, randTime)
 
 	return cellsArr[pos]
 }
@@ -145,4 +155,9 @@ function molify(cell) {
 function deMolify(cell) {
 	// Remove mole from a cell
 	cell.isMole = false
+}
+
+/* Generates a random whole number */
+function getRandomInt(max) {
+	return Math.floor(Math.random() * max)
 }
